@@ -21,7 +21,7 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
 ## Usage
 
 ```elixir
-iex(1)> Banner.banner("hello")
+iex(2)> IO.puts Banner.banner("hello")
 
  #    #  ######  #       #        ####
  #    #  #       #       #       #    #
@@ -29,6 +29,5 @@ iex(1)> Banner.banner("hello")
  #    #  #       #       #       #    #
  #    #  #       #       #       #    #
  #    #  ######  ######  ######   ####
-
 :ok
 ```

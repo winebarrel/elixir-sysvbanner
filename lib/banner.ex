@@ -124,18 +124,22 @@ defmodule Banner do
     " #    #    #   ######  ###     #     ###         # # # #",
   ]
 
-  def banner(msg, writer \\ &IO.write(&1)) do
-    Enum.each 0..7, fn index_a ->
-      chunks = Regex.scan(~r/.{0,8}/, msg) |> Enum.map(&List.first(&1))
-      Enum.each chunks, &print_line(&1, index_a, writer)
-      writer.("\n")
-    end
+  def banner(msg) do
+    0..6
+      |> Enum.map(fn index_a ->
+        chunks = Regex.scan(~r/.{0,8}/, msg) |> Enum.map(&List.first(&1))
+
+        chunks
+          |> Enum.map(&print_line(&1, index_a))
+          |> Enum.join
+      end)
+      |> Enum.join("\n")
   end
 
-  defp print_line(msg, index_a, writer) do
+  defp print_line(msg, index_a) do
     chars = String.to_char_list(msg) |> Stream.with_index
 
-    Enum.each chars, fn {ch, index_b} ->
+    Enum.map chars, fn {ch, index_b} ->
       ind = case ch - ?\s do
         delta when delta < 0 -> 0
         delta -> delta
@@ -153,7 +157,7 @@ defmodule Banner do
         |> Enum.filter(&(&1 != 0))
         |> List.to_string
 
-      writer.(line)
+      line
     end
   end
 end
