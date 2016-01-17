@@ -14,12 +14,6 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
           [{:banner, "~> 0.1.0"}]
         end
 
-  2. Ensure banner is started before your application:
-
-        def application do
-          [applications: [:banner]]
-        end
-
 ## Usage
 
 ```elixir
