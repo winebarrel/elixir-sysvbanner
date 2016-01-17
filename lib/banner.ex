@@ -149,7 +149,7 @@ defmodule Banner do
       line = 1..80 |> Enum.map(fn _ -> 0 end)
 
       line = Enum.reduce 0..7, line, fn index_c, line ->
-        ch = Enum.at glyphs_line, rem(ind, 8) * 7 + index_c, 0
+        ch = Enum.at(glyphs_line, rem(ind, 8) * 7 + index_c, 0)
         List.replace_at(line, index_b * 8 + index_c, ch)
       end
 
