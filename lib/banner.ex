@@ -148,10 +148,10 @@ defmodule Banner do
       glyphs_line = Enum.at(@glyphs, trunc(ind / 8) * 7 + index_a) |> String.to_char_list
       line = 1..80 |> Enum.map(fn _ -> 0 end)
 
-      line = Enum.reduce(0..7, line, fn index_c, line ->
-        ch = Enum.at glyphs_line, (rem(ind, 8) * 7) + index_c, 0
+      line = Enum.reduce 0..7, line, fn index_c, line ->
+        ch = Enum.at glyphs_line, rem(ind, 8) * 7 + index_c, 0
         List.replace_at(line, index_b * 8 + index_c, ch)
-      end)
+      end
 
       line = List.replace_at(line, index_b * 8 + 7, ?\s)
         |> Enum.filter(&(&1 != 0))
