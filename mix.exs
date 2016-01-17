@@ -7,7 +7,12 @@ defmodule Banner.Mixfile do
      elixir: "~> 1.2",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps]
+     deps: deps,
+     description: "It is Elixir sysvbanner port from https://github.com/uffejakobsen/sysvbanner.",
+     package: [
+       maintainers: ["Genki Sugawara"],
+       licenses: ["MIT"],
+       links: %{"GitHub" => "https://github.com/winebarrel/elixir-sysvbanner"}]]
   end
 
   # Configuration for the OTP application
